@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static java.lang.String.format;
+import org.springframework.web.util.HtmlUtils; // Fix by senthil
 
 @Controller
 public class ChatController {
@@ -100,7 +101,9 @@ public class ChatController {
     @GetMapping("/hello")
     public void hello(@RequestParam String user, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
-        response.getWriter().write("<h1>Hello: " + user + "</h1>");
+        // Escape the user input to prevent XSS
+        String escapedUser = HtmlUtils.htmlEscape(user);
+        response.getWriter().write("<h1>Hello: " + escapedUser + "</h1>");
         response.getWriter().flush();
     }
 

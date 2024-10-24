@@ -38,11 +38,16 @@ export const mutations = {
   initRoom(state, roomList) {
     state.roomList = roomList;
   },
+  // Use the subscribe logic directly here
   subscribe(state, roomKey) {
-    subscribe(state, roomKey, true);
+    state.roomList.map(room =>
+      room.key === roomKey ? (room.subscribed = true) : room
+    );
   },
   unsubscribe(state, roomKey) {
-    subscribe(state, roomKey, false);
+    state.roomList.map(room =>
+      room.key === roomKey ? (room.subscribed = false) : room
+    );
   },
   sendMessage(state, newMessage) {
     const roomMessage = state.roomMessages[newMessage.roomKey];
