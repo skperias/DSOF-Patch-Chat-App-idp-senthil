@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.9</version>
+        <version>3.2.11</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.snyk.snyklabs</groupId>
@@ -20,10 +19,10 @@
         <vavr-jackson.version>0.10.0</vavr-jackson.version>
         <spock-core.version>2.1-groovy-3.0</spock-core.version>
         <maven-compiler.version>3.8.0</maven-compiler.version>
-        <frontend-maven.version>1.9.1</frontend-maven.version>
+        <frontend-maven.version>1.11.0</frontend-maven.version> <!-- Updated version -->
         <maven-resources.version>3.1.0</maven-resources.version>
         <node.version>v16.14.2</node.version>
-        <npm.version>6.14.4</npm.version>
+        <npm.version>8.1.0</npm.version>
     </properties>
 
     <dependencyManagement>
@@ -31,7 +30,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.2.9</version>
+                <version>3.2.11</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -42,10 +41,18 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>3.2.11</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
+            <version>3.2.11</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.vavr</groupId>
@@ -120,6 +127,7 @@
                         <goals>
                             <goal>npm</goal>
                         </goals>
+
                         <phase>generate-resources</phase>
                         <configuration>
                             <arguments>run build</arguments>

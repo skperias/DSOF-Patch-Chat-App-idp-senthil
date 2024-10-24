@@ -1,52 +1,39 @@
-const pkg = require("./package");
+import { defineNuxtConfig } from 'nuxt/config'
 
-module.exports = {
+export default defineNuxtConfig({
   target: 'static',
 
-  /*
-   ** Headers of the page
-   */
   head: {
-    title: pkg.name,
+    title: 'snyk-chat-goof',
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: pkg.description }
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: 'Vue Multiroom Chat with Nuxt, Vuex and WebSocket' }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
-  /*
-   ** Customize the progress-bar color
-   */
-  loading: { color: "#fff" },
+  loading: { color: '#fff' },
 
-  /*
-   ** Global CSS
-   */
   css: [],
 
-  /*
-   ** Plugins to load before mounting the App
-   */
   plugins: [],
 
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [["@nuxtjs/vuetify", { defaultAssets: { icons: "md" } }]],
+  modules: [
+    '@nuxtjs/vuetify'
+  ],
 
-  /*
-   ** Build configuration
-   */
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    defaultAssets: { icons: 'md' },
+    treeShake: true
+  },
+
   build: {
-    /*
-     ** You can extend webpack config here
-     */
     extend(config, ctx) {}
   },
 
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:8080'
   }
-};
+})
