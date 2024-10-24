@@ -3508,7 +3508,7 @@
   "resolved" "https://registry.npmjs.org/nuxi/-/nuxi-3.15.0.tgz"
   "version" "3.15.0"
 
-"nuxt@^3.0.0":
+"nuxt@^3.13.2":
   "integrity" "sha512-Bjc2qRsipfBhjXsBEJCN+EUAukhdgFv/KoIR5HFB2hZOYRSqXBod3oWQs78k3ja1nlIhAEdBG533898KJxUtJw=="
   "resolved" "https://registry.npmjs.org/nuxt/-/nuxt-3.13.2.tgz"
   "version" "3.13.2"
